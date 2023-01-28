@@ -20,20 +20,22 @@ const LoginScreen = () => {
     const auth = getAuth(app);
 
     const navigation = useNavigation()
-    useEffect( () => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if(user) {
-                navigation.navigate("Home")
-            }
-        })
-        return unsubscribe
-    }, [])
+    // useEffect( () => {
+    //     const unsubscribe = auth.onAuthStateChanged(user => {
+    //         if(user) {
+    //             navigation.navigate("Home");
+    //             console.log("home")
+    //         }
+    //     })
+    //     return unsubscribe
+    // }, [])
 
     const handleSignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredentials => {
             const user = userCredentials.user;
             console.log("Registered with", user.email)
+            navigation.navigate("Home")
 
         }) 
         .catch(error => alert(error.message))
@@ -44,7 +46,7 @@ const LoginScreen = () => {
         .then(userCredentials => {
             const user = userCredentials.user;
             console.log("Logged in with:", user.email)
-            // navigation.navigate("Home")
+            navigation.navigate("Home")
 
         }) 
         .catch(error => alert(error.message))
@@ -54,7 +56,6 @@ const LoginScreen = () => {
         style={styles.container}
         behavior="padding"
     >   
-        {/* <LoginApp></LoginApp> */}
         <View style = {styles.inputContainer}>
             <TextInput
                 placeholder="Email"
@@ -92,7 +93,8 @@ const LoginScreen = () => {
     );
 }
 
-export default LoginScreen
+export default LoginScreen;
+// export {auth};
 
 const styles = StyleSheet.create({
     container: {
