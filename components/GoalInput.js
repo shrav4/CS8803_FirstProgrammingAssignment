@@ -22,6 +22,7 @@ function GoalInput(props){
                 value={enteredGoalText}
             />  
             <Button
+                color='#078259'
                 title="Add Goal" 
                 onPress={addGoalHandler}
             />
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 24,
+        marginBottom: 24, //24
         borderBottomWidth: 1,
         borderBottomColor: '#cccccc'
       },

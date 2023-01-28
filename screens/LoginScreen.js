@@ -12,13 +12,13 @@ import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 const LoginScreen = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
+    
     const navigation = useNavigation()
     // useEffect( () => {
     //     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -56,6 +56,9 @@ const LoginScreen = () => {
         style={styles.container}
         behavior="padding"
     >   
+        <View>
+            <Text style= {styles.title}>To-Do List</Text>
+        </View>
         <View style = {styles.inputContainer}>
             <TextInput
                 placeholder="Email"
@@ -93,8 +96,9 @@ const LoginScreen = () => {
     );
 }
 
+export {auth};
 export default LoginScreen;
-// export {auth};
+
 
 const styles = StyleSheet.create({
     container: {
@@ -141,5 +145,11 @@ const styles = StyleSheet.create({
         color: "#078259",
         fontWeight: '700',
         fontSize: 16
+    },
+    title: {
+        fontSize: 40,
+        fontWeight: '700',
+        color: "#078259",
+        padding: 30
     }
 })

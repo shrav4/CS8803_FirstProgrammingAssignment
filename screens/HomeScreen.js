@@ -19,7 +19,7 @@ import { StyleSheet, View, FlatList, Text} from 'react-native';
 
 import GoalItem from '../components/GoalItem';
 import GoalInput from '../components/GoalInput';
-import LoginScreen from './LoginScreen';
+import { auth } from './LoginScreen';
 
 
 export default function App() {
@@ -41,7 +41,7 @@ export default function App() {
   }
   return (
     <View style={styles.appContainer}>
-      {/* <Text>Email: {LoginScreen.currentUser?.email}</Text> */}
+      <Text style={styles.userDetails} > User Email: {auth.currentUser?.email}! </Text>
       <GoalInput onAddGoal={addGoalHandler}/>
       <View style={styles.goalsContainter}>
         <FlatList
@@ -73,5 +73,11 @@ const styles = StyleSheet.create({
   },
   goalsContainter: {
     flex: 6
+  },
+  userDetails: {
+    fontSize: 15,
+    fontWeight: '400',
+    color: "#078259",
+    paddingTop: 10
   }
 });
