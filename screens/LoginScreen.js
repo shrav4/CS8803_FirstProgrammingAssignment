@@ -1,12 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
-// import { auth } from '../firebase'
-// import { firebase } from '../firebase'
-// import { getAuth } from "firebase/auth";
-//Try 2:
-// import auth from '@react-native-firebase/auth';
-//Try 3:
+
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebase';
@@ -20,16 +15,6 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('')
     
     const navigation = useNavigation()
-    // useEffect( () => {
-    //     const unsubscribe = auth.onAuthStateChanged(user => {
-    //         if(user) {
-    //             navigation.navigate("Home");
-    //             console.log("home")
-    //         }
-    //     })
-    //     return unsubscribe
-    // }, [])
-
     const handleSignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredentials => {
@@ -149,7 +134,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 40,
         fontWeight: '700',
-        color: "#078259",
+        color: "#FF69B4",
         padding: 30
     }
 })

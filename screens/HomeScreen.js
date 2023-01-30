@@ -1,19 +1,3 @@
-// import React from 'react'
-// import { StyleSheet, Text, View } from 'react-native'
-
-
-// const HomeScreen = () => {
-//   return (
-//     <View>
-//       <Text>HomeScreen</Text>
-//     </View>
-//   )
-// }
-
-// export default HomeScreen
-
-// const styles = StyleSheet.create({})
-
 import { useState } from 'react';
 import { StyleSheet, View, FlatList, Text} from 'react-native';
 
@@ -68,7 +52,6 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex:1,
-    // paddingTop: ,
     paddingHorizontal: 16
   },
   goalsContainter: {
@@ -77,7 +60,7 @@ const styles = StyleSheet.create({
   userDetails: {
     fontSize: 15,
     fontWeight: '400',
-    color: "#078259",
+    color: "#FF69B4",
     paddingTop: 10
   }
 });
